@@ -52,7 +52,7 @@ public class ControllerMain {
         fc.getExtensionFilters().addAll(new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
                 new ExtensionFilter("All Files", "*.*"));
 
-        model.setPlaylist(fc.showOpenMultipleDialog(null));
+        model.addPlaylist(fc.showOpenMultipleDialog(null));
 
     }
 
@@ -93,6 +93,8 @@ public class ControllerMain {
         }
         startTrackProgressListener();
         startVolumeListener();
+        if (controllerPM!=null)
+            controllerPM.listView.getFocusModel().focus(model.getCurrentTrackIndex().intValue());
     }
 
     public void pause() {
@@ -214,7 +216,7 @@ public class ControllerMain {
 
             equalizerStage.show();
         } catch (IOException e) {
-                                    displayErrorWindow("FUCK YOU  '");
+            displayErrorWindow("Critical error '");
         }
     }
 
@@ -242,7 +244,11 @@ public class ControllerMain {
             displayErrorWindow("-_-");
         }
     }
-
+    /**
+     * Fills userID and currrent style sheet from settings file. If file is not found it will create one and reset settings to default.
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void readSettings() throws FileNotFoundException, IOException {
         String everything = "";
         try {
@@ -299,7 +305,6 @@ public class ControllerMain {
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(error);
-
         alert.showAndWait();
     }
 }

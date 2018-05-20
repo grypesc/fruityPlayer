@@ -95,17 +95,23 @@
         -fx-text-fill: black;    
 }
 
-
+.list-view {
+    -fx-background-color: #ff7c00;
+}
 
 .list-cell:selected {
-    -fx-background-color: green;
+    -fx-background-color: gold;
+    -fx-text-fill: black;
 }
 .list-cell:focused {
-    -fx-background-color: red;
+    -fx-background-color: goldenrod;
+    -fx-text-fill: black;
 }
-.list-cell:focus {
-    -fx-background-color: white;
-}
+
 .list-cell:hover {
-    -fx-background-color: pink;
+    -fx-background-color: grey;
+}
+
+.list-cell:empty{
+    -fx-background-color: #ff7c00;    
 }

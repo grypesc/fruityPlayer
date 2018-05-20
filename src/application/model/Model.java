@@ -1,13 +1,8 @@
 package application.model;
 
-import application.model.Playlist;
-import application.model.DurationExtended;
-import application.model.TrackData;
-
 import java.io.File;
 import java.util.List;
 import javafx.util.Duration;
-
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -22,7 +17,7 @@ import application.model.radams.gracenote.webapi.GracenoteWebAPI;
 
 
 /**
- *  This class provides funcionality of media player that is used by controllers
+ *  This class provides funcionality of music player that is used by controllers.
  * @author Grzegorz Rypeść
  */
 public class Model {
@@ -34,27 +29,45 @@ public class Model {
     private GracenoteWebAPI api;
     private String userID;
 
+    /**
+     *
+     */
     public Model() {
         currentPlaylist = new Playlist();
         currentTrackIndex = new SimpleIntegerProperty(0);
         userID="";
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSongLoaded() {
         return (currentTrack != null);
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isPlaylistEmpty() {
         return currentPlaylist.isEmpty();
     }
 
+    /**
+     *Sets the volume of mediaplayer
+     * @param newVolume should range from 0 to 100
+     */
     public void setVolume(Double newVolume) {
         if (this.isSongLoaded()) {
             mediaPlayer.setVolume(newVolume / 100);
         }
     }
-    
-    // sets elapsed time of mediaplayer
+
+    /**
+     *sets current time of mediaplayer
+     * @param fraction
+     */
     public void setCurrentTime(double fraction) {
         mediaPlayer.stop();
         double mili2 = mediaPlayer.getStopTime().toMillis();
@@ -65,8 +78,11 @@ public class Model {
         mediaPlayer.setStartTime(lol);
         mediaPlayer.play();
     }
-    
-    //begins playing audio if all null checks, loads first track if needed
+
+
+    /**
+     *Begins playing audio after all null checks, loads first track if needed
+     */
     public void play() {
         if (!this.currentPlaylist.isEmpty()) {
             if (!this.isSongLoaded()) {
@@ -79,6 +95,9 @@ public class Model {
         }
     }
 
+    /**
+     *
+     */
     public void pause() {
         if (mediaPlayer == null) {
             return;
@@ -87,6 +106,9 @@ public class Model {
         mediaPlayer.pause();
     }
 
+    /**
+     *
+     */
     public void stop() {
         if (mediaPlayer == null) {
             return;
@@ -95,6 +117,10 @@ public class Model {
         mediaPlayer.stop();
     }
 
+    /**
+     * Creates a new mediaPlayer
+     * @param newTrack
+     */
     public void loadTrack(File newTrack) {
         MediaPlayer old = mediaPlayer;
         currentTrack = new Media(new File(newTrack.getAbsolutePath()).toURI().toString());
@@ -107,6 +133,9 @@ public class Model {
         }        
     }
 
+    /**
+     *
+     */
     public void loadNextTrack() {
         if (!isSongLoaded()) {
             return;
@@ -119,6 +148,9 @@ public class Model {
         loadTrack(currentPlaylist.vector.get(currentTrackIndex.get()));
     }
 
+    /**
+     *
+     */
     public void loadPrevTrack() {
         if (!isSongLoaded()) {
             return;
@@ -130,7 +162,11 @@ public class Model {
         loadTrack(currentPlaylist.vector.get(currentTrackIndex.get()));
     }
 
-    public void setPlaylist(List<File> newTracks) {
+    /**
+     *Adds tracks to playlist
+     * @param newTracks
+     */
+    public void addPlaylist(List<File> newTracks) {
         if (newTracks != null) {
             for (File temp : newTracks) {
                 currentPlaylist.add(temp);
@@ -138,6 +174,10 @@ public class Model {
         }
     }
 
+    /**
+     * Seeks for the track and deletes it
+     * @param trackName
+     */
     public void removeTrack(String trackName) {
         if (currentPlaylist.getTracksIndex(trackName) == currentTrackIndex.get()) {
             return;
@@ -154,6 +194,10 @@ public class Model {
         return currentPlaylist;
     }
 
+    /**
+     * Wraps index of current track so listeners can watch it. 
+     * @return
+     */
     public IntegerProperty getCurrentTrackIndex() {
         return currentTrackIndex;
     }
@@ -212,7 +256,10 @@ public class Model {
         return data;
     }
     
-    //creates Gracenote api by connecting to Gracenote database, retrieves userID if it wasn't found in settings file
+    /**
+     * Creates Gracenote api by connecting to Gracenote database, retrieves userID if it wasn't found in settings file. On a succesful creation returns 1, 0 otherwise.
+     * @return
+     */
     public int registerGraceNote()
     {
                 try {
@@ -228,7 +275,6 @@ public class Model {
                             return 0;
                     
         } catch (GracenoteException e) {
-            e.printStackTrace();
             return 0;
         }
         return 1;

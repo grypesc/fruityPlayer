@@ -13,7 +13,7 @@ import javafx.scene.media.EqualizerBand;
 import javafx.stage.Stage;
 
 /**
- *
+ * 
  * @author Grzepa
  */
 public class ControllerEqualizer {
@@ -27,6 +27,10 @@ public class ControllerEqualizer {
     private CheckBox checkBoxApply;
     private boolean areListenersOn;
 
+    /**
+    * 
+    * Creates position listeners that keep equalizer window next to main window
+    */
     public void initialize(ControllerMain mainControllerArg, Stage equalizerStageArg) {
         mainController = mainControllerArg;
         equalizerStage = equalizerStageArg;

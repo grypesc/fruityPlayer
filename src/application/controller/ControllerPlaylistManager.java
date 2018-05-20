@@ -5,6 +5,7 @@ import application.model.Playlist;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
@@ -12,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ControllerPlaylistManager {
-
+    @FXML
     public ListView listView;
     public Stage infoStage, playlistManagerStage;
     public Playlist playlist;
@@ -28,8 +29,6 @@ public class ControllerPlaylistManager {
 
         ObservableList<String> observableList = FXCollections.observableArrayList(playlist.getTracksNames());
         listView.setItems(observableList);
-        listView.setMouseTransparent( false );
-        listView.setFocusTraversable( false );
 
         mainController.getStage().xProperty().addListener((observable, oldValue, newValue) -> {
             playlistManagerStage.setX(mainController.getStage().getX() - 198);
@@ -45,11 +44,16 @@ public class ControllerPlaylistManager {
 
         mainController.getModel().getCurrentTrackIndex().addListener((observable, oldValue, newValue) -> {
 
-           // listView.getFocusModel().focus(newValue.intValue());
-                listView.getSelectionModel().select(newValue.intValue());
+            listView.getFocusModel().focus(newValue.intValue());
         });
-
+        if (mainController.getModel().isSongLoaded())
+            listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
     }
+
+   public void select()
+   {
+       listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
+   }
 
     public void refreshListView() {
         ObservableList<String> observableList = FXCollections.observableArrayList(playlist.getTracksNames());
@@ -59,16 +63,21 @@ public class ControllerPlaylistManager {
     public void addTracks() {
         mainController.addTracksWithFileChooser();
         refreshListView();
+        listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
     }
 
     public void removeTrack() {
-        if (playlist.isEmpty()) {
+        if (playlist.isEmpty() || listView.getSelectionModel().getSelectedIndex()== -1) {
             return;
         }
+        int oldIndex = listView.getSelectionModel().getSelectedIndex();
         ObservableList<String> oList;
         oList = listView.getSelectionModel().getSelectedItems();
         mainController.getModel().removeTrack(oList.get(0));
         refreshListView();
+  
+        listView.getSelectionModel().select(oldIndex);      
+        listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
     }
 
     public void trackInfo() {

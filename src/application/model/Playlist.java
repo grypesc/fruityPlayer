@@ -17,7 +17,6 @@ public class Playlist {
 		vector.addElement(newMedia);
 	}
 
-
 	
 	public void add(File newSong)
 	{
@@ -60,5 +59,10 @@ public class Playlist {
                 index++;
             }
             return index;
+        }
+        
+        public int getSize()
+        {
+            return vector.size();
         }
 }

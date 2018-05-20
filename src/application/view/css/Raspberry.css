@@ -95,17 +95,18 @@
         -fx-text-fill: white;    
 }
 
-
-
 .list-cell:selected {
-    -fx-background-color: green;
+    -fx-background-color: pink;
+    -fx-text-fill: black;
 }
 .list-cell:focused {
-    -fx-background-color: red;
+    -fx-background-color: #b3005f;
 }
-.list-cell:focus {
-    -fx-background-color: white;
-}
+
 .list-cell:hover {
-    -fx-background-color: pink;
+    -fx-background-color: grey;
+}
+
+.list-cell:empty{
+    -fx-background-color: darkgreen;    
 }
