@@ -1,0 +1,111 @@
+.root {
+    -fx-background-color: linear-gradient(#7500ab, #3a006b);
+    -fx-base: royalblue;
+    -fx-control-inner-background: #3a006b;
+    -fx-focus-color: transparent;
+}
+
+ .nextButton, .prevButton, .playButton, .pauseButton, .stopButton {
+    -fx-background-color : linear-gradient(lightblue  , royalblue );
+    }
+ .nextButton:hover, .prevButton:hover, .playButton:hover, .pauseButton:hover, .stopButton:hover {
+    -fx-background-color : linear-gradient(aqua   , lightskyblue  );
+
+ 	    
+ }
+    
+.playButton {
+	-fx-background-image: url('../images/buttons/blueberry/play.png');
+}
+
+.pauseButton {
+	-fx-background-image: url('../images/buttons/blueberry/pause.png');
+}
+
+.stopButton {
+	-fx-background-image: url('../images/buttons/blueberry/stop.png');
+}
+
+.nextButton {
+	-fx-background-image: url('../images/buttons/blueberry/next.png');
+}
+
+.prevButton {
+	-fx-background-image: url('../images/buttons/blueberry/prev.png');
+}
+
+.optionsButton {
+	-fx-background-image: url('../images/buttons/blueberry/options.png');
+}
+
+.equalizerButton {
+	-fx-background-image: url('../images/buttons/blueberry/equalizer.png');
+}
+
+.settingsButton {
+	-fx-background-image: url('../images/buttons/blueberry/settings.png');
+}
+
+.plusButton {
+	-fx-background-image: url('../images/buttons/blueberry/plus.png');
+}
+
+.deleteButton {
+	-fx-background-image: url('../images/buttons/blueberry/x.png');
+}
+
+.infoButton {
+	-fx-background-image: url('../images/buttons/blueberry/info.png');
+}
+
+
+.progressCircle {
+	-fx-fill: #3a006b;
+	-fx-stroke-width: 0;
+	-fx-stroke: #7500ab;
+}
+
+.infoLabel {
+        -fx-text-fill: lightblue;
+}
+
+.labelProgressCounter {
+    -fx-font: 15px Tahoma;
+    -fx-fill: lightblue;
+    -fx-text-alignment: justify  ;
+}
+
+/*Removes default label under indicator */
+.progressIndicator .percentage { 
+   -fx-fill:null;
+}
+
+
+.progressIndicator {
+    -fx-base: #7500ab;
+    -fx-control-inner-background: royalblue;
+    -fx-progress-color:  lightblue;
+}
+
+.EQLabel {
+        -fx-text-fill: lightblue;
+}
+
+.EQCheckBox {
+        -fx-text-fill: lightblue;    
+}
+
+
+
+.list-cell:selected {
+    -fx-background-color: lightblue;
+}
+.list-cell:focused {
+    -fx-background-color: lightblue;
+}
+.list-cell:focus {
+    -fx-background-color: white;
+}
+.list-cell:hover {
+    -fx-background-color: gray;
+}

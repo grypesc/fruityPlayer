@@ -1,0 +1,111 @@
+.root {
+    -fx-background-color: linear-gradient(#70380f, #432109);
+    -fx-base: BlanchedAlmond ;
+    -fx-control-inner-background: #ffd699 ;
+    -fx-focus-color: transparent;
+}
+
+ .nextButton, .prevButton, .playButton, .pauseButton, .stopButton {
+    -fx-background-color : linear-gradient(BlanchedAlmond   , #ffd699   );
+    }
+ .nextButton:hover, .prevButton:hover, .playButton:hover, .pauseButton:hover, .stopButton:hover {
+    -fx-background-color : linear-gradient(#ffd699   , #ffc266  );
+
+ 	    
+ }
+    
+.playButton {
+	-fx-background-image: url('../images/buttons/coconut/play.png');
+}
+
+.pauseButton {
+	-fx-background-image: url('../images/buttons/coconut/pause.png');
+}
+
+.stopButton {
+	-fx-background-image: url('../images/buttons/coconut/stop.png');
+}
+
+.nextButton {
+	-fx-background-image: url('../images/buttons/coconut/next.png');
+}
+
+.prevButton {
+	-fx-background-image: url('../images/buttons/coconut/prev.png');
+}
+
+.optionsButton {
+	-fx-background-image: url('../images/buttons/coconut/options.png');
+}
+
+.equalizerButton {
+	-fx-background-image: url('../images/buttons/coconut/equalizer.png');
+}
+
+.settingsButton {
+	-fx-background-image: url('../images/buttons/coconut/settings.png');
+}
+
+.plusButton {
+	-fx-background-image: url('../images/buttons/coconut/plus.png');
+}
+
+.deleteButton {
+	-fx-background-image: url('../images/buttons/coconut/x.png');
+}
+
+.infoButton {
+	-fx-background-image: url('../images/buttons/coconut/info.png');
+}
+
+
+.progressCircle {
+	-fx-fill: #432109;
+	-fx-stroke-width: 0;
+	-fx-stroke: #7500ab;
+}
+
+.infoLabel {
+        -fx-text-fill: BlanchedAlmond;
+}
+
+.labelProgressCounter {
+    -fx-font: 15px Tahoma;
+    -fx-fill: BlanchedAlmond;
+    -fx-text-alignment: justify  ;
+}
+
+/*Removes default label under indicator */
+.progressIndicator .percentage { 
+   -fx-fill:null;
+}
+
+
+.progressIndicator {
+    -fx-base: #432109;
+    -fx-control-inner-background: BlanchedAlmond;
+    -fx-progress-color:  #ffad33;
+}
+
+.EQLabel {
+        -fx-text-fill: BlanchedAlmond;
+}
+
+.EQCheckBox {
+        -fx-text-fill: BlanchedAlmond;    
+}
+
+
+
+.list-cell:selected {
+    -fx-background-color: green;
+}
+.list-cell:focused {
+    -fx-background-color: red;
+}
+.list-cell:focus {
+    -fx-background-color: white;
+}
+.list-cell:hover {
+    -fx-background-color: pink;
+}

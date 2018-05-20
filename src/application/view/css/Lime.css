@@ -1,0 +1,111 @@
+.root {
+    -fx-background-color: linear-gradient(lawngreen, greenyellow);
+    -fx-base: goldenrod;
+    -fx-control-inner-background: limegreen;
+    -fx-focus-color: transparent;
+}
+
+ .nextButton, .prevButton, .playButton, .pauseButton, .stopButton {
+    -fx-background-color : linear-gradient(gold  , GoldenRod  );
+    }
+ .nextButton:hover, .prevButton:hover, .playButton:hover, .pauseButton:hover, .stopButton:hover {
+    -fx-background-color : linear-gradient(yellow   , gold  );
+
+ 	    
+ }
+    
+.playButton {
+	-fx-background-image: url('../images/buttons/lime/play.png');
+}
+
+.pauseButton {
+	-fx-background-image: url('../images/buttons/lime/pause.png');
+}
+
+.stopButton {
+	-fx-background-image: url('../images/buttons/lime/stop.png');
+}
+
+.nextButton {
+	-fx-background-image: url('../images/buttons/lime/next.png');
+}
+
+.prevButton {
+	-fx-background-image: url('../images/buttons/lime/prev.png');
+}
+
+.optionsButton {
+	-fx-background-image: url('../images/buttons/lime/options.png');
+}
+
+.equalizerButton {
+	-fx-background-image: url('../images/buttons/lime/equalizer.png');
+}
+
+.settingsButton {
+	-fx-background-image: url('../images/buttons/lime/settings.png');
+}
+
+.plusButton {
+	-fx-background-image: url('../images/buttons/lime/plus.png');
+}
+
+.deleteButton {
+	-fx-background-image: url('../images/buttons/lime/x.png');
+}
+
+.infoButton {
+	-fx-background-image: url('../images/buttons/lime/info.png');
+}
+
+
+.progressCircle {
+	-fx-fill: yellowgreen;
+	-fx-stroke-width: 1;
+	-fx-stroke: black;
+}
+
+.infoLabel {
+        -fx-text-fill: black;
+}
+
+.labelProgressCounter {
+    -fx-font: 15px Tahoma;
+    -fx-fill: black;
+    -fx-text-alignment: justify  ;
+}
+
+/*Removes default label under indicator */
+.progressIndicator .percentage { 
+   -fx-fill:null;
+}
+
+
+.progressIndicator {
+    -fx-base: #7500ab;
+    -fx-control-inner-background: goldenrod;
+    -fx-progress-color:  gold;
+}
+
+.EQLabel {
+        -fx-text-fill: black;
+}
+
+.EQCheckBox {
+        -fx-text-fill: black;    
+}
+
+
+
+.list-cell:selected {
+    -fx-background-color: green;
+}
+.list-cell:focused {
+    -fx-background-color: red;
+}
+.list-cell:focus {
+    -fx-background-color: white;
+}
+.list-cell:hover {
+    -fx-background-color: pink;
+}

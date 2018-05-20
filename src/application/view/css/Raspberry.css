@@ -1,0 +1,111 @@
+.root {
+    -fx-background-color: linear-gradient(#b3005f , #800044 );
+    -fx-base: darkgreen;
+    -fx-control-inner-background: darkgreen;
+    -fx-focus-color: transparent;
+}
+
+ .nextButton, .prevButton, .playButton, .pauseButton, .stopButton {
+    -fx-background-color : linear-gradient(green  , darkgreen   );
+    }
+ .nextButton:hover, .prevButton:hover, .playButton:hover, .pauseButton:hover, .stopButton:hover {
+    -fx-background-color : linear-gradient(limegreen    , green  );
+
+ 	    
+ }
+    
+.playButton {
+	-fx-background-image: url('../images/buttons/raspberry/play.png');
+}
+
+.pauseButton {
+	-fx-background-image: url('../images/buttons/raspberry/pause.png');
+}
+
+.stopButton {
+	-fx-background-image: url('../images/buttons/raspberry/stop.png');
+}
+
+.nextButton {
+	-fx-background-image: url('../images/buttons/raspberry/next.png');
+}
+
+.prevButton {
+	-fx-background-image: url('../images/buttons/raspberry/prev.png');
+}
+
+.optionsButton {
+	-fx-background-image: url('../images/buttons/raspberry/options.png');
+}
+
+.equalizerButton {
+	-fx-background-image: url('../images/buttons/raspberry/equalizer.png');
+}
+
+.settingsButton {
+	-fx-background-image: url('../images/buttons/raspberry/settings.png');
+}
+
+.plusButton {
+	-fx-background-image: url('../images/buttons/raspberry/plus.png');
+}
+
+.deleteButton {
+	-fx-background-image: url('../images/buttons/raspberry/x.png');
+}
+
+.infoButton {
+	-fx-background-image: url('../images/buttons/raspberry/info.png');
+}
+
+
+.progressCircle {
+	-fx-fill: #800044;
+	-fx-stroke-width: 0;
+	-fx-stroke: black;
+}
+
+.infoLabel {
+        -fx-text-fill: white;
+}
+
+.labelProgressCounter {
+    -fx-font: 15px Tahoma;
+    -fx-fill: white;
+    -fx-text-alignment: justify  ;
+}
+
+/*Removes default label under indicator */
+.progressIndicator .percentage { 
+   -fx-fill:null;
+}
+
+
+.progressIndicator {
+    -fx-base: maroon;
+    -fx-control-inner-background: darkgreen;
+    -fx-progress-color:  green;
+}
+
+.EQLabel {
+        -fx-text-fill: white;
+}
+
+.EQCheckBox {
+        -fx-text-fill: white;    
+}
+
+
+
+.list-cell:selected {
+    -fx-background-color: green;
+}
+.list-cell:focused {
+    -fx-background-color: red;
+}
+.list-cell:focus {
+    -fx-background-color: white;
+}
+.list-cell:hover {
+    -fx-background-color: pink;
+}

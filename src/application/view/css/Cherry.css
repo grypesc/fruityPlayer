@@ -1,0 +1,111 @@
+.root {
+    -fx-background-color: linear-gradient(#990000 , #660000 );
+    -fx-base: darkgreen;
+    -fx-control-inner-background: darkgreen;
+    -fx-focus-color: transparent;
+}
+
+ .nextButton, .prevButton, .playButton, .pauseButton, .stopButton {
+    -fx-background-color : linear-gradient(green  , darkgreen   );
+    }
+ .nextButton:hover, .prevButton:hover, .playButton:hover, .pauseButton:hover, .stopButton:hover {
+    -fx-background-color : linear-gradient(limegreen    , green  );
+
+ 	    
+ }
+    
+.playButton {
+	-fx-background-image: url('../images/buttons/cherry/play.png');
+}
+
+.pauseButton {
+	-fx-background-image: url('../images/buttons/cherry/pause.png');
+}
+
+.stopButton {
+	-fx-background-image: url('../images/buttons/cherry/stop.png');
+}
+
+.nextButton {
+	-fx-background-image: url('../images/buttons/cherry/next.png');
+}
+
+.prevButton {
+	-fx-background-image: url('../images/buttons/cherry/prev.png');
+}
+
+.optionsButton {
+	-fx-background-image: url('../images/buttons/cherry/options.png');
+}
+
+.equalizerButton {
+	-fx-background-image: url('../images/buttons/cherry/equalizer.png');
+}
+
+.settingsButton {
+	-fx-background-image: url('../images/buttons/cherry/settings.png');
+}
+
+.plusButton {
+	-fx-background-image: url('../images/buttons/cherry/plus.png');
+}
+
+.deleteButton {
+	-fx-background-image: url('../images/buttons/cherry/x.png');
+}
+
+.infoButton {
+	-fx-background-image: url('../images/buttons/cherry/info.png');
+}
+
+
+.progressCircle {
+	-fx-fill: #660000;
+	-fx-stroke-width: 0;
+	-fx-stroke: black;
+}
+
+.infoLabel {
+        -fx-text-fill: greenyellow;
+}
+
+.labelProgressCounter {
+    -fx-font: 15px Tahoma;
+    -fx-fill: yellowgreen;
+    -fx-text-alignment: justify  ;
+}
+
+/*Removes default label under indicator */
+.progressIndicator .percentage { 
+   -fx-fill:null;
+}
+
+
+.progressIndicator {
+    -fx-base: #660000;
+    -fx-control-inner-background: darkgreen;
+    -fx-progress-color:  green;
+}
+
+.EQLabel {
+        -fx-text-fill: yellowgreen;
+}
+
+.EQCheckBox {
+        -fx-text-fill: yellowgreen;    
+}
+
+
+
+.list-cell:selected {
+    -fx-background-color: green;
+}
+.list-cell:focused {
+    -fx-background-color: red;
+}
+.list-cell:focus {
+    -fx-background-color: white;
+}
+.list-cell:hover {
+    -fx-background-color: pink;
+}
