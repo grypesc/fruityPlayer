@@ -37,15 +37,8 @@ public class Playlist {
             return list;
         }
         
-        public void remove(String name)
+        public void remove(int index)
         {
-            int index=0;
-            for (File temp : vector) 
-            {
-                if (temp.getName().equals(name))
-                    break;
-                index++;
-            }
             vector.remove(index);
         }
         

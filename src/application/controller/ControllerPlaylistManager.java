@@ -2,13 +2,19 @@ package application.controller;
 
 import application.model.TrackData;
 import application.model.Playlist;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -65,17 +71,16 @@ public class ControllerPlaylistManager {
         refreshListView();
         listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
     }
+    
 
     public void removeTrack() {
         if (playlist.isEmpty() || listView.getSelectionModel().getSelectedIndex()== -1) {
             return;
         }
         int oldIndex = listView.getSelectionModel().getSelectedIndex();
-        ObservableList<String> oList;
-        oList = listView.getSelectionModel().getSelectedItems();
-        mainController.getModel().removeTrack(oList.get(0));
+        mainController.getModel().removeTrack(listView.getSelectionModel().getSelectedIndex());
         refreshListView();
-  
+ 
         listView.getSelectionModel().select(oldIndex);      
         listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
     }
@@ -105,6 +110,17 @@ public class ControllerPlaylistManager {
             infoStage.show();
         } catch (IOException e) {
         }
+    }
+    
+    @FXML    
+    private void handleDragOver(DragEvent event) {   
+        mainController.handleDragOver(event);
+  
+    }
+
+    @FXML    
+    private void handleDragDropped(DragEvent event) {  
+        mainController.handleDragDropped(event);
     }
 
 }

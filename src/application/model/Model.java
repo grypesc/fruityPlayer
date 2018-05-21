@@ -29,27 +29,19 @@ public class Model {
     private GracenoteWebAPI api;
     private String userID;
 
-    /**
-     *
-     */
+
     public Model() {
         currentPlaylist = new Playlist();
         currentTrackIndex = new SimpleIntegerProperty(0);
         userID="";
     }
 
-    /**
-     *
-     * @return
-     */
+
     public boolean isSongLoaded() {
         return (currentTrack != null);
     }
 
-    /**
-     *
-     * @return
-     */
+
     public boolean isPlaylistEmpty() {
         return currentPlaylist.isEmpty();
     }
@@ -79,7 +71,6 @@ public class Model {
         mediaPlayer.play();
     }
 
-
     /**
      *Begins playing audio after all null checks, loads first track if needed
      */
@@ -95,9 +86,7 @@ public class Model {
         }
     }
 
-    /**
-     *
-     */
+
     public void pause() {
         if (mediaPlayer == null) {
             return;
@@ -106,9 +95,7 @@ public class Model {
         mediaPlayer.pause();
     }
 
-    /**
-     *
-     */
+
     public void stop() {
         if (mediaPlayer == null) {
             return;
@@ -169,24 +156,24 @@ public class Model {
     public void addPlaylist(List<File> newTracks) {
         if (newTracks != null) {
             for (File temp : newTracks) {
-                currentPlaylist.add(temp);
+                String ext = temp.getName();
+                int i = ext.lastIndexOf(".");
+                ext = ext.substring(i+1);
+                if (ext.equals("mp3") || ext.equals("wav")||ext.equals("aac") || ext.equals("aiff")||ext.equals("aif"))
+                    currentPlaylist.add(temp);
             }
         }
     }
 
-    /**
-     * Seeks for the track and deletes it
-     * @param trackName
-     */
-    public void removeTrack(String trackName) {
-        if (currentPlaylist.getTracksIndex(trackName) == currentTrackIndex.get()) {
+    public void removeTrack(int index) {
+        if (index == currentTrackIndex.get()) {
             return;
         }
 
-        if (currentPlaylist.getTracksIndex(trackName) < currentTrackIndex.get()) {
+        if (index < currentTrackIndex.get()) {
             currentTrackIndex.set(currentTrackIndex.get() - 1);
         }
-        currentPlaylist.remove(trackName);
+        currentPlaylist.remove(index);
 
     }
 

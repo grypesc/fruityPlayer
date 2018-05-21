@@ -4,9 +4,9 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="application.controller.ControllerPlaylistManager">
+<AnchorPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="200.0" onDragOver="#handleDragOver" onDragDropped="#handleDragDropped" xmlns:fx="http://javafx.com/fxml/1"   fx:controller="application.controller.ControllerPlaylistManager">
    <children>
-      <ListView fx:id="listView" layoutX="50.0" prefHeight="410.0" prefWidth="156.0" styleClass="listView" onMouseClicked="#select"/>
+      <ListView  fx:id="listView" layoutX="50.0" prefHeight="410.0" prefWidth="156.0" styleClass="listView" onMouseClicked="#select"/>
       <Button layoutX="7.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" onAction="#addTracks" styleClass="plusButton"/>
       <Button layoutX="7.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" onAction="#removeTrack" styleClass="deleteButton"/>
       <Button layoutX="7.0" layoutY="97.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" onAction="#trackInfo" styleClass="infoButton"/>

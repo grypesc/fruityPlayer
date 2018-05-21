@@ -8,13 +8,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.21906354515050167" maxHeight="400.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0"   xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControllerMain">
+<SplitPane onDragOver="#handleDragOver" onDragDropped="#handleDragDropped" dividerPositions="0.21906354515050167" maxHeight="400.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="application.controller.ControllerMain">
    <items>
       <Pane maxHeight="400.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="45.0" styleClass="root" SplitPane.resizableWithParent="false">
          <children>
-            <Button layoutX="6.0" layoutY="24.0" mnemonicParsing="false" onAction="#openPlaylistManager" prefHeight="25.0" prefWidth="25.0" styleClass="optionsButton"/>
+            <Button layoutX="6.0" layoutY="24.0" mnemonicParsing="false" onAction="#openPlaylistManager" prefHeight="25.0" prefWidth="25.0" styleClass="optionsButton" />
             <Button layoutX="6.0" layoutY="71.0" mnemonicParsing="false" onAction="#openEqualizer" prefHeight="25.0" prefWidth="25.0" styleClass="equalizerButton" />
-            <Button layoutX="6.0" layoutY="119.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="25.0" prefWidth="25.0" styleClass="settingsButton"/>
+            <Button layoutX="6.0" layoutY="119.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="25.0" prefWidth="25.0" styleClass="settingsButton" />
          </children></Pane>
       <Pane maxHeight="400.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0" styleClass="root" SplitPane.resizableWithParent="false">
          <children>
@@ -23,9 +23,9 @@
             <Button fx:id="playButton" layoutX="56.0" layoutY="150.0" mnemonicParsing="false" onAction="#play" prefHeight="40.0" prefWidth="40.0" styleClass="playButton" />
             <Button fx:id="stopButton" layoutX="56.0" layoutY="195.0" mnemonicParsing="false" onAction="#stop" prefHeight="40.0" prefWidth="40.0" styleClass="stopButton" />
             <Button fx:id="prevButton" layoutX="56.0" layoutY="240.0" mnemonicParsing="false" onAction="#nextTrack" prefHeight="40.0" prefWidth="40.0" styleClass="nextButton" />
-            <ProgressIndicator fx:id="trackProgress" layoutX="29.0" layoutY="290.0" prefHeight="126.0" prefWidth="94.0" progress="0.0" onMouseClicked="#setCurrentDuration" styleClass="progressIndicator"/>
-            <Circle  layoutX="76.0" layoutY="338.0" radius="33.0" styleClass="progressCircle"  />
-            <Text   fx:id="labelProgressCounter" layoutX="62.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0"  styleClass="labelProgressCounter"/>
+            <ProgressIndicator fx:id="trackProgress" layoutX="29.0" layoutY="290.0" onMouseClicked="#setCurrentDuration" prefHeight="126.0" prefWidth="94.0" progress="0.0" styleClass="progressIndicator" />
+            <Circle layoutX="76.0" layoutY="338.0" radius="33.0" styleClass="progressCircle" />
+            <Text fx:id="labelProgressCounter" layoutX="62.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelProgressCounter" />
             <Slider fx:id="volumeSlider" layoutX="109.0" layoutY="77.0" orientation="VERTICAL" prefHeight="187.0" prefWidth="28.0" value="50" />
          </children>
       </Pane>

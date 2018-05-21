@@ -9,17 +9,23 @@ import application.model.Model;
 import application.model.DurationExtended;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 
@@ -49,9 +55,8 @@ public class ControllerMain {
 
     public void addTracksWithFileChooser() {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
+        fc.getExtensionFilters().addAll(new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac", "*aiff", "aif"),
                 new ExtensionFilter("All Files", "*.*"));
-
         model.addPlaylist(fc.showOpenMultipleDialog(null));
 
     }
@@ -61,7 +66,7 @@ public class ControllerMain {
             model.getCurrentTimeProperty().addListener((observable, oldValue, newValue) -> {
                 trackProgress.setProgress((newValue.toMillis()) / (model.getTrackDuration().toMillis()));
                 labelProgressCounter.setText(DurationExtended.toMinutesAndSeconds(newValue));
-                if (newValue.toSeconds() >= getModel().getTrackDuration().toSeconds() - 0.5) {
+                if (newValue.toSeconds() >= getModel().getTrackDuration().toSeconds() - 0.2) {
                     nextTrack();
                 }
 
@@ -306,5 +311,20 @@ public class ControllerMain {
         alert.setHeaderText(null);
         alert.setContentText(error);
         alert.showAndWait();
+    }
+    
+    @FXML    
+    public void handleDragOver(DragEvent event) {   
+    if (event.getDragboard().hasFiles())
+        event.acceptTransferModes(TransferMode.ANY);
+                
+    }
+
+    @FXML    
+    public void handleDragDropped(DragEvent event) {  
+        List <File> list = event.getDragboard().getFiles();
+        model.addPlaylist(list);
+        if (controllerPM!=null)
+            controllerPM.refreshListView();
     }
 }
