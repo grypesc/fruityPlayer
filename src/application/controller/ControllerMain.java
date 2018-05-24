@@ -22,7 +22,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
@@ -30,9 +29,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 
 public class ControllerMain {
-    public Slider volumeSlider;
-    public ProgressIndicator trackProgress;
-    public Text labelProgressCounter;
+    @FXML
+    private Slider volumeSlider;
+    @FXML
+    private ProgressIndicator trackProgress;
+    @FXML
+    private Text labelProgressCounter;
     public Model model;
     public Stage mainStage, playlistManagerStage, equalizerStage, settingsStage;
     private ControllerEqualizer controller;
@@ -82,7 +84,7 @@ public class ControllerMain {
             });
         }
     }
-
+    @FXML
     public void play() {
         if (!model.isSongLoaded()) {
             if (model.isPlaylistEmpty()) {
@@ -101,25 +103,25 @@ public class ControllerMain {
         if (controllerPM!=null)
             controllerPM.listView.getFocusModel().focus(model.getCurrentTrackIndex().intValue());
     }
-
+    @FXML
     public void pause() {
         model.pause();
     }
-
+    @FXML
     public void stop() {
         model.stop();
     }
-
+    @FXML
     public void prevTrack() {
         model.loadPrevTrack();
         play();
     }
-
+    @FXML
     public void nextTrack() {
         model.loadNextTrack();
         play();
     }
-
+    @FXML
     public void setCurrentDuration(MouseEvent mouse) {
         if (!model.isSongLoaded()) {
             return;
@@ -155,7 +157,7 @@ public class ControllerMain {
     public String getStyleSheetURL() {
         return pathToStyleSheet + styleSheetName;
     }
-
+    @FXML
     public void applyStyleSheet() {
         mainStage.getScene().getStylesheets().clear();
         mainStage.getScene().getStylesheets().add(pathToStyleSheet + styleSheetName);
@@ -171,7 +173,7 @@ public class ControllerMain {
         }
 
     }
-
+    @FXML
     public void openPlaylistManager() {
         try {
             if (controllerPM != null && !playlistManagerStage.isShowing()) {
@@ -198,7 +200,7 @@ public class ControllerMain {
         if (model.registerGraceNote()==0)
             isConnectedToDatabase=false;
     }
-
+    @FXML
     public void openEqualizer() {
         try {
             if (controller != null && !equalizerStage.isShowing()) {
@@ -224,8 +226,8 @@ public class ControllerMain {
             displayErrorWindow("Critical error '");
         }
     }
-
-    public void openSettings() {
+    @FXML
+    private void openSettings() {
         try {
             if (controllerSettings != null && !settingsStage.isShowing()) {
                 settingsStage.show();
@@ -328,3 +330,8 @@ public class ControllerMain {
             controllerPM.refreshListView();
     }
 }
+
+
+
+
+

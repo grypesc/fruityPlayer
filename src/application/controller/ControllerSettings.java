@@ -23,7 +23,7 @@ public class ControllerSettings {
     private ControllerMain mainController;
     @FXML
     private ChoiceBox choiceBox;
-    ObservableList<String> styleSheetsURL;
+    private ObservableList<String> styleSheetsURL;
 
     public void initialize(ControllerMain mainControllerArg, Stage settingsStageArg) {
         mainController = mainControllerArg;

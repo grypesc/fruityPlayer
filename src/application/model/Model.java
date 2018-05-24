@@ -233,12 +233,22 @@ public class Model {
         }
         GracenoteMetadata results = api.searchTrack(trackArtist, trackAlbum, trackTitle);
         info = results.getData();
-        TrackData data = new TrackData("", "");
-        String url = "";
+        TrackData data = new TrackData("", "", "");
         if (info.contains("album_coverart:")) {
-            url = info.substring(info.indexOf("album_coverart:") + 16, info.indexOf("\n", info.indexOf("album_coverart:")));
+            data.setAlbumCoverURL( info.substring(info.indexOf("album_coverart:") + 16, info.indexOf("\n", info.indexOf("album_coverart:"))) );
+            info = info.replace(( info.substring(info.indexOf("album_coverart:") -6, info.indexOf("\n", info.indexOf("album_coverart:"))) ), "");
         }
-        data.setUrl(url);
+        if (info.contains("artist_image_url:")) {
+            data.setArtistImage( info.substring(info.indexOf("artist_image_url:") + 18, info.indexOf("\n", info.indexOf("artist_image_url:"))) );
+            info = info.replace(( info.substring(info.indexOf("artist_image_url:") -6, info.indexOf("\n", info.indexOf("artist_image_url:"))) ), "");
+        }
+        if (info.contains("track_gn_id")) {
+            info = info.replace(( info.substring(info.indexOf("track_gn_id") -6, info.indexOf("\n", info.indexOf("track_gn_id"))) ), "");
+        }
+        if (info.contains("album_gnid")) {
+            info = info.replace(( info.substring(info.indexOf("album_gnid") -6, info.indexOf("\n", info.indexOf("album_gnid"))) ), "");
+        }
+        
         data.setInfo(info);
         return data;
     }

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="600.0"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControllerInfo">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ControllerInfo">
    <children>
-      <ImageView fx:id="imageView" fitHeight="397.0" fitWidth="374.0" layoutX="215.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="label" layoutX="9.0" layoutY="6.0" prefHeight="529.0" prefWidth="208.0" text="Label" styleClass="infoLabel"/>
+      <ImageView fx:id="imageView" fitHeight="340.0" fitWidth="331.0" layoutX="355.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="label" layoutX="9.0" layoutY="6.0" prefHeight="529.0" prefWidth="434.0" styleClass="infoLabel" text="Label" />
+      <ChoiceBox fx:id="choiceBox" layoutX="418.0" layoutY="382.0" prefHeight="25.0" prefWidth="205.0" />
    </children>
 </AnchorPane>

@@ -12,27 +12,37 @@ package application.model;
     public class TrackData {
 
         private String info;
-        private String url;
+        private String albumCoverURL;
+        private String artistImage;
 
         public TrackData(){};
-        public TrackData(String dataArg, String urlArg) {
+        public TrackData(String dataArg, String urlArg, String artistIm) {
             setInfo(dataArg);
-            setUrl(urlArg);
+            setAlbumCoverURL(urlArg);
+            setArtistImage(artistIm);
         }
 
         public void setInfo(String inf) {
             info = inf;
         }
 
-        public void setUrl(String ur) {
-            url = ur;
+        public void setAlbumCoverURL(String ur) {
+            albumCoverURL = ur;
         }
-
+        
+        public void setArtistImage(String im){
+            artistImage=im;
+        }
+        
         public String getInfo() {
             return info;
         }
 
-        public String getUrl() {
-            return url;
+        public String getAlbumCoverURL() {
+            return albumCoverURL;
+        }
+        
+        public String getArtistImage() {
+            return artistImage;
         }
     }

@@ -114,13 +114,12 @@ public class ControllerEqualizer {
                 mainController.getModel().getMediaPlayer().setBalance((newValue.doubleValue() - 50) / 100);
         });
     }
-
+    @FXML
     public void reset() {
         for (int i = 0; i < 10; i++) {
             sliders[i].setValue(50);
         }
         sliderBalance.setValue(50);
-
     }
 
 }
