@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -80,7 +81,9 @@ public class ControllerPlaylistManager {
         listView.getFocusModel().focus(mainController.getModel().getCurrentTrackIndex().intValue());
     }
 
-    public void trackInfo() {
+    @FXML
+    private void trackInfo() {
+        System.out.print(mainController.isConnectedToDatabase);
         if (mainController.getModel().isSongLoaded()==false){
             mainController.displayErrorWindow("Please load a song first");
             return;
@@ -100,6 +103,7 @@ public class ControllerPlaylistManager {
             infoStage = new Stage();
             infoStage.setScene(infoScene);
             controllerInfo = (ControllerInfo) loader.getController();
+            infoStage.getIcons().add(new Image("application/view/images/icons/grapes.png"));
             controllerInfo.initialize(data);
 
             infoStage.show();

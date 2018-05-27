@@ -12,21 +12,21 @@
    <items>
       <Pane maxHeight="400.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="45.0" styleClass="root" SplitPane.resizableWithParent="false">
          <children>
-            <Button layoutX="6.0" layoutY="24.0" mnemonicParsing="false" onAction="#openPlaylistManager" prefHeight="25.0" prefWidth="25.0" styleClass="optionsButton" />
-            <Button layoutX="6.0" layoutY="71.0" mnemonicParsing="false" onAction="#openEqualizer" prefHeight="25.0" prefWidth="25.0" styleClass="equalizerButton" />
-            <Button layoutX="6.0" layoutY="119.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="25.0" prefWidth="25.0" styleClass="settingsButton" />
+            <Button layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#openPlaylistManager" prefHeight="25.0" prefWidth="25.0" styleClass="optionsButton" />
+            <Button layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#openEqualizer" prefHeight="25.0" prefWidth="25.0" styleClass="equalizerButton" />
+            <Button layoutX="10.0" layoutY="120.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="25.0" prefWidth="25.0" styleClass="settingsButton" />
          </children></Pane>
       <Pane maxHeight="400.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0" styleClass="root" SplitPane.resizableWithParent="false">
          <children>
-            <Button fx:id="nextButton" layoutX="56.0" layoutY="60.0" mnemonicParsing="false" onAction="#prevTrack" prefHeight="40.0" prefWidth="40.0" styleClass="prevButton" />
-            <Button fx:id="pauseButton" layoutX="56.0" layoutY="105.0" mnemonicParsing="false" onAction="#pause" prefHeight="40.0" prefWidth="40.0" styleClass="pauseButton" />
-            <Button fx:id="playButton" layoutX="56.0" layoutY="150.0" mnemonicParsing="false" onAction="#play" prefHeight="40.0" prefWidth="40.0" styleClass="playButton" />
-            <Button fx:id="stopButton" layoutX="56.0" layoutY="195.0" mnemonicParsing="false" onAction="#stop" prefHeight="40.0" prefWidth="40.0" styleClass="stopButton" />
-            <Button fx:id="prevButton" layoutX="56.0" layoutY="240.0" mnemonicParsing="false" onAction="#nextTrack" prefHeight="40.0" prefWidth="40.0" styleClass="nextButton" />
+            <Button fx:id="nextButton" layoutX="55.0" layoutY="35.0" mnemonicParsing="false" onAction="#prevTrack" prefHeight="40.0" prefWidth="40.0" styleClass="prevButton" />
+            <Button fx:id="pauseButton" layoutX="55.0" layoutY="85.0" mnemonicParsing="false" onAction="#pause" prefHeight="40.0" prefWidth="40.0" styleClass="pauseButton" />
+            <Button fx:id="playButton" layoutX="56.0" layoutY="135.0" mnemonicParsing="false" onAction="#play" prefHeight="40.0" prefWidth="40.0" styleClass="playButton" />
+            <Button fx:id="stopButton" layoutX="56.0" layoutY="185.0" mnemonicParsing="false" onAction="#stop" prefHeight="40.0" prefWidth="40.0" styleClass="stopButton" />
+            <Button fx:id="prevButton" layoutX="56.0" layoutY="235.0" mnemonicParsing="false" onAction="#nextTrack" prefHeight="40.0" prefWidth="40.0" styleClass="nextButton" />
             <ProgressIndicator fx:id="trackProgress" layoutX="29.0" layoutY="290.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#setCurrentDuration" prefHeight="110.0" prefWidth="92.0" progress="0.0" snapToPixel="false" styleClass="progressIndicator" />
             <Circle layoutX="75.0" layoutY="337.0" radius="33.0" styleClass="progressCircle" />
             <Text fx:id="labelProgressCounter" layoutX="62.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelProgressCounter" />
-            <Slider fx:id="volumeSlider" layoutX="109.0" layoutY="77.0" orientation="VERTICAL" prefHeight="187.0" prefWidth="28.0" value="50" />
+            <Slider fx:id="volumeSlider" layoutX="107.0" layoutY="62.0" orientation="VERTICAL" prefHeight="187.0" prefWidth="28.0" value="50" />
          </children>
       </Pane>
    </items>

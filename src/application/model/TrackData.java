@@ -9,7 +9,7 @@ package application.model;
  *
  * @author Grzepa
  */
-    public class TrackData {
+    public final class TrackData {
 
         private String info;
         private String albumCoverURL;

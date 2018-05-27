@@ -7,6 +7,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.text.Text;
 import application.model.Model;
 import application.model.DurationExtended;
+import application.model.radams.gracenote.webapi.GracenoteException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -184,6 +185,7 @@ public class ControllerMain {
                 playlistManagerStage.close();
                 return;
             }
+            model.registerGraceNote();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/PlaylistManager.fxml"));
             AnchorPane playlistManagerLayout = (AnchorPane) loader.load();
             Scene playlistManagerScene = new Scene(playlistManagerLayout);
@@ -196,9 +198,11 @@ public class ControllerMain {
 
             playlistManagerStage.show();
         } catch (IOException e) {
+            displayErrorWindow("Critical error");
+        } catch (GracenoteException e) {
+            displayErrorWindow("Could not connect to database.");
         }
-        if (model.registerGraceNote()==0)
-            isConnectedToDatabase=false;
+
     }
     @FXML
     public void openEqualizer() {
@@ -223,11 +227,11 @@ public class ControllerMain {
 
             equalizerStage.show();
         } catch (IOException e) {
-            displayErrorWindow("Critical error '");
+            displayErrorWindow("Critical error");
         }
     }
     @FXML
-    private void openSettings() {
+    public void openSettings() {
         try {
             if (controllerSettings != null && !settingsStage.isShowing()) {
                 settingsStage.show();
@@ -248,7 +252,7 @@ public class ControllerMain {
             controllerSettings.initialize(this, settingsStage);
             settingsStage.show();
         } catch (IOException e) {
-            displayErrorWindow("-_-");
+            displayErrorWindow("Critical error");
         }
     }
     /**
@@ -277,8 +281,6 @@ public class ControllerMain {
             displayErrorWindow("A fruity exception occured while reading settings file. ");
             Platform.exit();
         }
-
-
 
     }
 

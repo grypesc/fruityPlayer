@@ -9,6 +9,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import java.net.UnknownHostException;
 
 import application.model.radams.gracenote.webapi.GracenoteException;
 import application.model.radams.gracenote.webapi.GracenoteMetadata;
@@ -254,27 +255,19 @@ public class Model {
     }
     
     /**
-     * Creates Gracenote api by connecting to Gracenote database, retrieves userID if it wasn't found in settings file. On a succesful creation returns 1, 0 otherwise.
-     * @return
+     *Creats api object used to create queries,
+     * @throws application.model.radams.gracenote.webapi.GracenoteException
      */
-    public int registerGraceNote()
+    public void registerGraceNote() throws GracenoteException
     {
-                try {
+                
                     if (userID.equals("")){
                         api = new GracenoteWebAPI("1338309575-CFEC05AC173B943409AECB08F7C86ACF", "CFEC05AC173B943409AECB08F7C86ACF");
-                        if (api==null)
-                            return 0;
                         userID = api.register();
                     }
                     else
                         api = new GracenoteWebAPI("1338309575-CFEC05AC173B943409AECB08F7C86ACF", "CFEC05AC173B943409AECB08F7C86ACF", userID);
-                        if (api==null)
-                            return 0;
                     
-        } catch (GracenoteException e) {
-            return 0;
-        }
-        return 1;
-    }
+    } 
 
 }
