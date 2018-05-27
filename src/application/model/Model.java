@@ -214,7 +214,8 @@ public class Model {
         userID = s;
     }
 
-    public TrackData getTrackData(Media media) {
+    public TrackData getTrackData(Media media) throws GracenoteException {
+        
         String trackTitle, trackAlbum = "", trackArtist = "", info;
         if (media.getMetadata().get("title") != null) {
             trackTitle = media.getMetadata().get("title").toString();
@@ -255,7 +256,7 @@ public class Model {
     }
     
     /**
-     *Creats api object used to create queries,
+     *Creats the api object used to create queries.
      * @throws application.model.radams.gracenote.webapi.GracenoteException
      */
     public void registerGraceNote() throws GracenoteException

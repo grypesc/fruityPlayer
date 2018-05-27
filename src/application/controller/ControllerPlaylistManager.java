@@ -2,6 +2,7 @@ package application.controller;
 
 import application.model.TrackData;
 import application.model.Playlist;
+import application.model.radams.gracenote.webapi.GracenoteException;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -83,19 +84,14 @@ public class ControllerPlaylistManager {
 
     @FXML
     private void trackInfo() {
-        System.out.print(mainController.isConnectedToDatabase);
+
         if (mainController.getModel().isSongLoaded()==false){
             mainController.displayErrorWindow("Please load a song first");
             return;
         }
-        if(mainController.isConnectedToDatabase==false){
-            mainController.displayErrorWindow("No internet connection");
-            return;
-        }
-        ControllerInfo controllerInfo;
-        TrackData data = (mainController.getModel().getTrackData(mainController.getModel().getMedia()));
         try {
-
+            ControllerInfo controllerInfo;
+            TrackData data = (mainController.getModel().getTrackData(mainController.getModel().getMedia()));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Info.fxml"));
             AnchorPane infoLayout = (AnchorPane) loader.load();
             Scene infoScene = new Scene(infoLayout);
@@ -108,7 +104,12 @@ public class ControllerPlaylistManager {
 
             infoStage.show();
         } catch (IOException e) {
+            mainController.displayErrorWindow("Critical error.");
         }
+        catch (Exception e){
+            mainController.displayErrorWindow("Couldn't connect to database, check your Internet connection.");
+        }
+            
     }
     
     @FXML    

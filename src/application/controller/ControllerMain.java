@@ -42,7 +42,6 @@ public class ControllerMain {
     private ControllerPlaylistManager controllerPM;
     private ControllerSettings controllerSettings;
     private String styleSheetName, pathToStyleSheet;
-    public boolean isConnectedToDatabase;
     private String settingsFileName;
 
     public void initialize(Stage stage) throws IOException {
@@ -53,7 +52,6 @@ public class ControllerMain {
         settingsFileName="settings.fruity";
         readSettings();
         mainStage.getScene().getStylesheets().add(pathToStyleSheet + styleSheetName);
-        isConnectedToDatabase=true;
     }
 
     public void addTracksWithFileChooser() {
@@ -185,7 +183,6 @@ public class ControllerMain {
                 playlistManagerStage.close();
                 return;
             }
-            model.registerGraceNote();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/PlaylistManager.fxml"));
             AnchorPane playlistManagerLayout = (AnchorPane) loader.load();
             Scene playlistManagerScene = new Scene(playlistManagerLayout);
@@ -195,12 +192,12 @@ public class ControllerMain {
             playlistManagerStage.initStyle(StageStyle.UNDECORATED);
             controllerPM = (ControllerPlaylistManager) loader.getController();
             controllerPM.initialize(playlistManagerStage, this);
-
             playlistManagerStage.show();
+            model.registerGraceNote();
         } catch (IOException e) {
             displayErrorWindow("Critical error");
-        } catch (GracenoteException e) {
-            displayErrorWindow("Could not connect to database.");
+        } catch (Exception e) {
+            displayErrorWindow("Could not connect to database. Check you Internet connection.");
         }
 
     }
@@ -299,7 +296,7 @@ public class ControllerMain {
 
             bufferedWriter.close();
         } catch (IOException ex) {
-            displayErrorWindow("Unable to create settings file,  '");
+            displayErrorWindow("Unable to create settings file.");
             Platform.exit();
             
         }
