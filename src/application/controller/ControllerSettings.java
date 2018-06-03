@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Grzepa
+ * @author Grzegorz Rypeść
  */
 public class ControllerSettings {
 

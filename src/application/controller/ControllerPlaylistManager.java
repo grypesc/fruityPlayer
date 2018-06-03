@@ -2,7 +2,6 @@ package application.controller;
 
 import application.model.TrackData;
 import application.model.Playlist;
-import application.model.radams.gracenote.webapi.GracenoteException;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

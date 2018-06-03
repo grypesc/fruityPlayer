@@ -7,7 +7,6 @@ import javafx.scene.control.Slider;
 import javafx.scene.text.Text;
 import application.model.Model;
 import application.model.DurationExtended;
-import application.model.radams.gracenote.webapi.GracenoteException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -85,6 +84,11 @@ public class ControllerMain {
     }
     @FXML
     public void play() {
+        if(controllerPM!=null && controllerPM.listView.getSelectionModel().getSelectedIndex()!=-1 && !model.isPlaylistEmpty()){
+            model.play(controllerPM.listView.getSelectionModel().getSelectedIndex());
+            return;
+        }
+        
         if (!model.isSongLoaded()) {
             if (model.isPlaylistEmpty()) {
                 addTracksWithFileChooser();

@@ -9,7 +9,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import java.net.UnknownHostException;
 
 import application.model.radams.gracenote.webapi.GracenoteException;
 import application.model.radams.gracenote.webapi.GracenoteMetadata;
@@ -87,6 +86,17 @@ public class Model {
         }
     }
 
+        public void play(int index) {
+
+                if (index>=currentPlaylist.getSize()||index<0)
+                    return;
+                mediaPlayer.pause();
+                File newTrack = currentPlaylist.vector.get(index);
+                loadTrack(newTrack);
+                mediaPlayer.play();
+                currentTrackIndex.set(index);
+    }
+        
 
     public void pause() {
         if (mediaPlayer == null) {
