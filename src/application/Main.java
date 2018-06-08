@@ -22,7 +22,6 @@ public class Main extends Application {
 			mainStage.setScene(scene);
 			mainStage.setResizable(false);
                         mainStage.setTitle("FP");
-                      //  mainStage.resizableProperty().setValue(Boolean.FALSE);
 			mainStage.getIcons().add(new Image("application/view/images/icons/grapes.png"));
                         controllerMain = (ControllerMain)loader.getController();
                         controllerMain.initialize(mainStage);    

@@ -1,0 +1,114 @@
+.root {
+    -fx-background-color: linear-gradient( #00004d,  #1a1a1a);
+    -fx-base: #4d4d4d;
+    -fx-control-inner-background: #404040;
+    -fx-focus-color: transparent;
+}
+
+ .nextButton, .prevButton, .playButton, .pauseButton, .stopButton {
+    -fx-background-color : linear-gradient(#666666  , #4d4d4d );
+    }
+ .nextButton:hover, .prevButton:hover, .playButton:hover, .pauseButton:hover, .stopButton:hover {
+    -fx-background-color : linear-gradient(#808080   , #666666  );
+
+ 	    
+ }
+    
+ 
+.playButton {
+	-fx-background-image: url('../images/buttons/blueberry/play.png');
+}
+
+.pauseButton {
+	-fx-background-image: url('../images/buttons/blueberry/pause.png');
+}
+
+.stopButton {
+	-fx-background-image: url('../images/buttons/blueberry/stop.png');
+}
+
+.nextButton {
+	-fx-background-image: url('../images/buttons/blueberry/next.png');
+}
+
+.prevButton {
+	-fx-background-image: url('../images/buttons/blueberry/prev.png');
+}
+
+.optionsButton {
+	-fx-background-image: url('../images/buttons/blueberry/options.png');
+}
+
+.equalizerButton {
+	-fx-background-image: url('../images/buttons/blueberry/equalizer.png');
+}
+
+.settingsButton {
+	-fx-background-image: url('../images/buttons/blueberry/settings.png');
+}
+
+.plusButton {
+	-fx-background-image: url('../images/buttons/blueberry/plus.png');
+}
+
+.deleteButton {
+	-fx-background-image: url('../images/buttons/blueberry/x.png');
+}
+
+.infoButton {
+	-fx-background-image: url('../images/buttons/blueberry/info.png');
+}
+
+
+.progressCircle {
+	-fx-fill: #1a1a1a;
+	-fx-stroke-width: 0;
+	-fx-stroke: #7500ab;
+}
+
+.infoLabel {
+        -fx-text-fill: #a9a9a9;
+}
+
+.labelProgressCounter {
+    -fx-font: 15px Tahoma;
+    -fx-fill: #a9a9a9;
+    -fx-text-alignment: justify  ;
+}
+
+/*Removes default label under indicator */
+.progressIndicator .percentage { 
+   -fx-fill:null;
+}
+
+
+.progressIndicator {
+    -fx-base: #1a1a1a;
+    -fx-control-inner-background: #404040;
+    -fx-progress-color:  #666666;
+}
+
+.EQLabel {
+        -fx-text-fill: #a9a9a9;
+}
+
+.EQCheckBox {
+        -fx-text-fill: #a9a9a9;    
+}
+
+.list-view {
+    -fx-background-color: #3a006b;
+}
+.list-cell:selected {
+    -fx-background-color: lightblue;
+    -fx-text-fill: #a9a9a9; 
+}
+.list-cell:focused {
+    -fx-background-color: royalblue;
+}
+.list-cell:hover {
+    -fx-background-color: grey;
+}
+.list-cell:empty{
+    -fx-background-color: #3a006b;    
+}

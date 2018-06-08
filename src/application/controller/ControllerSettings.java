@@ -46,6 +46,7 @@ public class ControllerSettings {
         });
 
         List<String> list = new ArrayList<>();
+        list.add("BlackBerry");
         list.add("BlueBerry");
         list.add("Cherry");
         list.add("Coconut");

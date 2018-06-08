@@ -85,8 +85,12 @@ public class ControllerMain {
     @FXML
     public void play() {
         if(controllerPM!=null && controllerPM.listView.getSelectionModel().getSelectedIndex()!=-1 && !model.isPlaylistEmpty()){
-            model.play(controllerPM.listView.getSelectionModel().getSelectedIndex());
-            return;
+             model.play(controllerPM.listView.getSelectionModel().getSelectedIndex());
+             startTrackProgressListener();
+             startVolumeListener();
+             if (controllerPM!=null)
+                controllerPM.listView.getFocusModel().focus(model.getCurrentTrackIndex().intValue());
+             return;
         }
         
         if (!model.isSongLoaded()) {
@@ -96,10 +100,10 @@ public class ControllerMain {
                     controllerPM.refreshListView();
                 }
             }
-            model.play();
+            model.play(0);
             model.setVolume(volumeSlider.getValue());
         } else {
-            model.play();
+            model.play(model.getCurrentTrackIndex().intValue());
         }
         startTrackProgressListener();
         startVolumeListener();
@@ -116,13 +120,15 @@ public class ControllerMain {
     }
     @FXML
     public void prevTrack() {
-        model.loadPrevTrack();
-        play();
+        model.play(model.getCurrentTrackIndex().intValue()-1);
+        startTrackProgressListener();
+        startVolumeListener();
     }
     @FXML
     public void nextTrack() {
-        model.loadNextTrack();
-        play();
+        model.play(model.getCurrentTrackIndex().intValue()+1);
+        startTrackProgressListener();
+        startVolumeListener();
     }
     @FXML
     public void setCurrentDuration(MouseEvent mouse) {
@@ -333,8 +339,4 @@ public class ControllerMain {
             controllerPM.refreshListView();
     }
 }
-
-
-
-
 

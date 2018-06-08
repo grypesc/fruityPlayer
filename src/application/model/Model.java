@@ -32,7 +32,7 @@ public class Model {
 
     public Model() {
         currentPlaylist = new Playlist();
-        currentTrackIndex = new SimpleIntegerProperty(0);
+        currentTrackIndex = new SimpleIntegerProperty(-1);
         userID="";
     }
 
@@ -71,26 +71,18 @@ public class Model {
         mediaPlayer.play();
     }
 
-    /**
-     *Begins playing audio after all null checks, loads first track if needed
-     */
-    public void play() {
-        if (!this.currentPlaylist.isEmpty()) {
-            if (!this.isSongLoaded()) {
-                this.loadTrack(this.currentPlaylist.vector.firstElement());
-            }
-            Status status = mediaPlayer.getStatus();
-            if (status != Status.PLAYING) {
-                mediaPlayer.play();
-            }
-        }
-    }
-
         public void play(int index) {
-
-                if (index>=currentPlaylist.getSize()||index<0)
+                if (currentTrackIndex.intValue()==index && mediaPlayer.getStatus()!=Status.PLAYING)
+                {
+                    mediaPlayer.play();
                     return;
-                mediaPlayer.pause();
+                }
+                if (index>currentPlaylist.getSize() || index<0 || currentTrackIndex.intValue()==index || currentPlaylist.getSize()==0)
+                    return;
+                if (mediaPlayer!=null)
+                    mediaPlayer.pause();
+                if (index==currentPlaylist.getSize())
+                    index=0;                   
                 File newTrack = currentPlaylist.vector.get(index);
                 loadTrack(newTrack);
                 mediaPlayer.play();
@@ -129,35 +121,6 @@ public class Model {
             mediaPlayer.setVolume(old.getVolume());
             mediaPlayer.setBalance(old.getBalance());
         }        
-    }
-
-    /**
-     *
-     */
-    public void loadNextTrack() {
-        if (!isSongLoaded()) {
-            return;
-        }
-        mediaPlayer.stop();
-        if (currentTrackIndex.get() < currentPlaylist.vector.size() - 1)
-            currentTrackIndex.set(currentTrackIndex.get() + 1);
-        else
-            currentTrackIndex.set(0);
-        loadTrack(currentPlaylist.vector.get(currentTrackIndex.get()));
-    }
-
-    /**
-     *
-     */
-    public void loadPrevTrack() {
-        if (!isSongLoaded()) {
-            return;
-        }
-        mediaPlayer.stop();
-        if (currentTrackIndex.get() > 0) {
-            currentTrackIndex.set(currentTrackIndex.get() - 1);
-        }
-        loadTrack(currentPlaylist.vector.get(currentTrackIndex.get()));
     }
 
     /**
