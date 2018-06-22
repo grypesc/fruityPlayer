@@ -97,18 +97,18 @@
 }
 
 .list-view {
-    -fx-background-color: #3a006b;
+    -fx-background-color: #00004d;
 }
 .list-cell:selected {
-    -fx-background-color: lightblue;
-    -fx-text-fill: #a9a9a9; 
+    -fx-background-color: darkblue;
+    -fx-text-fill: white; 
 }
 .list-cell:focused {
-    -fx-background-color: royalblue;
+    -fx-background-color: grey;
 }
 .list-cell:hover {
     -fx-background-color: grey;
 }
 .list-cell:empty{
-    -fx-background-color: #3a006b;    
+    -fx-background-color: #00004d;    
 }
